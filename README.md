@@ -67,8 +67,8 @@ mobile-bulletin-board/ ├── code/ # Embedded C code for LPC2148 │ └─�
 
 ## 📸 Sample Image
 
-![Dot Matrix Connection](images/DOT_MATRIX_BOARD_CONNECTIONS.jpg)
-
+![Block diagram](images/Block_diagram.png)
+![Flowchat.png](image/Flowchat.png)
 ---
 
 ## 📚 References

@@ -68,7 +68,7 @@ mobile-bulletin-board/ ├── code/ # Embedded C code for LPC2148 │ └─�
 ## 📸 Sample Image
 
 ![Block diagram](https://github.com/ANIDEEPCODE/Mobile_Technology_based_Bulletinbord/blob/main/image/%20Block_diagram.png).
-![Flowchat](image/Flowchat.png)
+![Flowchat](https://github.com/ANIDEEPCODE/Mobile_Technology_based_Bulletinbord/blob/main/image/Flowchart.png)
 ---
 
 ## 📚 References

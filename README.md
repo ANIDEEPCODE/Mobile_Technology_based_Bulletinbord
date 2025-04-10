@@ -1,52 +1,92 @@
-# 📱 Mobile Technology-Based Bulletin Board
+# 📱 Mobile Technology-Based Bulletin Board using LPC2148
 
-This project demonstrates a wireless bulletin board system where messages can be sent from a mobile phone and displayed on a dot matrix LED board. It uses embedded systems and mobile communication (via GSM or Bluetooth) to create a simple and efficient digital notice board solution.
+This project is a **wireless bulletin board system** based on the **LPC2148 ARM7 microcontroller**. It receives SMS messages via a GSM module and displays them on an **LED Dot Matrix Display** using shift registers. Ideal for schools, offices, and public information systems.
+
+---
 
 ## 🚀 Features
 
-- Wireless message transmission from a mobile phone
-- Real-time message display on dot matrix display
-- Based on LPC2148 microcontroller
-- Modular and expandable design
+- 📶 **SMS-based communication** via GSM module (Neo_M660A/SIM800)
+- 🔳 **Dot matrix message display** using shift registers (74HC164)
+- 🧠 **ARM7 (LPC2148)** microcontroller
+- 🔄 Automatically updates display on new SMS reception
 
-## 🧰 Hardware Used
+---
 
-- **LPC2148 Microcontroller**
-- **GSM Module** (Neo_M660A or similar)
-- **Dot Matrix LED Display**
-- **74HC164 & 74HC573 shift registers**
-- **AT24C256 EEPROM** (optional for message storage)
-- **Power Supply**
+## 🔧 Hardware Components
 
-## 📱 Communication Method
+| Component               | Description                            |
+|------------------------|----------------------------------------|
+| LPC2148                | ARM7TDMI-S Microcontroller              |
+| GSM Module             | Neo_M660A or SIM800                    |
+| LED Dot Matrix Display | 8x8 or 8x32 matrix                     |
+| 74HC164                | Shift Register for LED control         |
+| Power Supply           | 5V/12V as per GSM and MCU              |
+| Optional EEPROM        | AT24C256 for message storage (future) |
 
-Messages are sent from a mobile device via **GSM (SMS)** or potentially via **Bluetooth**, depending on the hardware setup. The microcontroller receives the message and displays it on the dot matrix board.
+---
 
-## 🖥️ Software Tools
+## 📡 Working Principle
 
-- Embedded C
-- Keil µVision (for development)
-- Proteus (for simulation)
-- Flash Magic (for programming)
-- Arduino IDE (if adapting to Arduino/ESP)
+1. User sends an SMS to the GSM module.
+2. LPC2148 receives the message via UART.
+3. First few characters from the SMS are parsed.
+4. Characters are sent to the **dot matrix display** using GPIO (via 74HC164).
+5. Display is updated in real-time.
+
+---
+
+## 🧑‍💻 Code Overview
+
+Written in **Embedded C** for LPC2148 using Keil µVision.
+
+### Main Functions:
+- `UART0_Init()` – Initializes UART for GSM communication
+- `UART0_ReadChar()` – Reads characters from GSM
+- `Display_Char_On_DotMatrix(char ch)` – Displays a char (simplified)
+- `delay_ms()` – Creates millisecond delays
+
+📁 **Path:** `code/main.c`
+
+---
+
+## 🖥️ Tools Used
+
+- **Keil µVision** – ARM code development
+- **Proteus** – Circuit simulation
+- **Flash Magic** – Flashing code to LPC2148
+- *(Optional)* Arduino IDE (if ported to Arduino later)
+
+---
 
 ## 📂 Folder Structure
 
-mobile-bulletin-board/ ├── code/ # Embedded code (add your .c/.h/.hex files here) ├── images/ # Project images and circuit diagrams ├── reference_data/ # Datasheets and research documents ├── app/ # Optional mobile app files ├── README.md # This file └── LICENSE # Open source license (MIT recommended)
+mobile-bulletin-board/ ├── code/ # Embedded C code for LPC2148 │ └── main.c ├── images/ # Circuit diagrams, screenshots ├── reference_data/ # PDFs, datasheets, GSM commands ├── README.md # Project info └── LICENSE # MIT License (recommended)
 
-## 📸 Demo
+---
+
+## 📸 Sample Image
 
 ![Dot Matrix Connection](images/DOT_MATRIX_BOARD_CONNECTIONS.jpg)
 
+---
+
 ## 📚 References
 
-- Dot matrix schematics
-- GSM module AT commands guide
-- LPC2148 datasheet and user manual
-- All found in `/REFERENCE DATA`
+- LPC2148 User Manual  
+- GSM Module AT Commands  
+- 74HC164 Datasheet  
+- All found under `reference_data/`
+
+---
 
 ## 🪪 License
 
-This project is open-source under the [MIT License](LICENSE).
+This project is open-sourced under the **MIT License** – feel free to use and modify it.
 
 ---
+
+## 🙌 Credits
+
+Designed and developed as part of an embedded systems portfolio project.
+
